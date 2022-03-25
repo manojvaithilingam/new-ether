@@ -1,0 +1,36 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+form {
+  border: 2px grey solid;
+  border-radius: 2%;
+  padding: 10px;
+  width: 50%;
+}
+
+#form-div {
+  display: flex;
+  justify-content: center;
+}
+
+.form-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-box {
+  width: 10vw;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#price-display {
+  margin: 0;
+  text-align: center;
+}
+
+#submit-div {
+  display: flex;
+  justify-content: center;
+}

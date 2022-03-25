@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Betting Escrow</h2>
+    <div id="form-div">
+      <form id="bet-form">
+        <h3>Make Bet</h3>
+        <div class="form-input">
+          <label for="pair">Choose a coin pair to bet on the price of</label>
+          <select name="pair" id="pair-select" class="input-box">
+            <option value="eth,usd">ETH-USD</option>
+          </select>
+        </div>
+        <br />
+        <p id="price-display">Current price:</p>
+        <br />
+        <div class="form-input">
+          <label for="quantity">Choose how much ETH to bet</label>
+          <input
+            type="number"
+            name="quantity"
+            required
+            min="0"
+            class="input-box"
+            step="0.001"
+          />
+        </div>
+        <br />
+        <div class="form-input">
+          <label for="direction">Bet that the price goes up? or down?</label>
+          <select name="direction" id="direction-select" class="input-box">
+            <option value="up">Up</option>
+            <option value="down">Down</option>
+          </select>
+        </div>
+        <br />
+        <div id="submit-div">
+          <input type="submit" id="bet-submit" />
+        </div>
+      </form>
+    </div>
+    <button class="enableEthereumButton">Connect meta mask</button>
+    <!-- <h2>Account: <span class="showAccount"></span></h2> -->
+    <p>Contract address for this bet:<span class="showAccount"></span></p>
+    <p id="contract-address"></p>
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
+    ></script>
+    <script src="escrow.js"></script>
+    <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js">
+    </script>
+    <script type="text/javascript">
+      const provider = detectEthereumProvider().then((provider) => {
+        if (provider) {
+      // From now on, this should always be true:
+      // provider === window.ethereum
+      startApp(provider); // initialize your app
+      } else {
+      console.log('Please install MetaMask!');
+      }
+      })
+      
+    </script>
+  </body>
+</html>
